@@ -11,4 +11,5 @@ int main()
 
 	printf("%c %c\n", ch1, ch2);
 	return 0;
+    //если шо использовал gcc -o SwapProgram main.c swap.c swap.h для компиляции
 }

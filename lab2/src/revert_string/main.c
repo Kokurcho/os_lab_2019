@@ -20,5 +20,7 @@ int main(int argc, char *argv[])
 	printf("Reverted: %s\n", reverted_str);
 	free(reverted_str);
 	return 0;
+    //https://www.firststeps.ru/linux/r.php?5
+    //https://www.firststeps.ru/linux/r.php?6
 }
 
