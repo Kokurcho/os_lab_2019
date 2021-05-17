@@ -23,6 +23,10 @@ int r1 = 0, r2 = 0, r3 = 0;
 pthread_mutex_t mut = PTHREAD_MUTEX_INITIALIZER;
 
 int main() {
+
+    struct timeval start_time;
+  gettimeofday(&start_time, NULL);
+
   pthread_t thread1, thread2;
 
   if (pthread_create(&thread1, NULL, (void *)do_one_thing,
@@ -49,6 +53,18 @@ int main() {
 
   do_wrap_up(common);
 
+
+
+  struct timeval finish_time;
+  gettimeofday(&finish_time, NULL);
+
+  double elapsed_time = (finish_time.tv_sec - start_time.tv_sec) * 1000.0;
+  elapsed_time += (finish_time.tv_usec - start_time.tv_usec) / 1000.0;
+
+
+
+  printf("Elapsed time: %fms\n", elapsed_time);
+
   return 0;
 }
 
@@ -57,7 +73,7 @@ void do_one_thing(int *pnum_times) {
   unsigned long k;
   int work;
   for (i = 0; i < 50; i++) {
-    // pthread_mutex_lock(&mut);
+     //pthread_mutex_lock(&mut);
     printf("doing one thing\n");
     work = *pnum_times;
     printf("counter = %d\n", work);
@@ -65,7 +81,7 @@ void do_one_thing(int *pnum_times) {
     for (k = 0; k < 500000; k++)
       ;                 /* long cycle */
     *pnum_times = work; /* write back */
-	// pthread_mutex_unlock(&mut);
+	 //pthread_mutex_unlock(&mut);
   }
 }
 
@@ -74,7 +90,7 @@ void do_another_thing(int *pnum_times) {
   unsigned long k;
   int work;
   for (i = 0; i < 50; i++) {
-    // pthread_mutex_lock(&mut);
+     //pthread_mutex_lock(&mut);
     printf("doing another thing\n");
     work = *pnum_times;
     printf("counter = %d\n", work);
@@ -82,7 +98,7 @@ void do_another_thing(int *pnum_times) {
     for (k = 0; k < 500000; k++)
       ;                 /* long cycle */
     *pnum_times = work; /* write back */
-    // pthread_mutex_unlock(&mut);
+     //pthread_mutex_unlock(&mut);
   }
 }
 

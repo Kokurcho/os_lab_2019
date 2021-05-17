@@ -1,0 +1,31 @@
+1
+//про гонку https://habr.com/ru/post/460339/
+cd lab5/src
+без mutex
+gcc -pthread -o mutex mutex.c
+./mutex
+
+с mutex
+gcc -pthread -o mutex1 mutex.c
+./mutex1
+
+int pthread_create(*ptherad_t, const pthread_attr_t *attr, void* (*start_routine)(void*), void *arg);
+(поток, его атрибуты, функция, её атрибуты)
+время одинаковое, но результат работы в корне отличается:
+
+All done, counter = 50  - без мьютекса
+Elapsed time: 231.388000ms
+
+All done, counter = 100 - с мьютексом
+Elapsed time: 233.039000ms
+
+
+2
+//https://sun9-27.userapi.com/impg/WhEWT44-G3qEN9SsBvhWJaxb43wZsVtdmJsL2g/kr4z116el3I.jpg?size=560x628&quality=96&sign=712303ef4f1871ae0909b2b11114431d&type=album
+
+gcc -pthread -o factorial factorial.c
+./factorial
+
+3
+gcc -pthread -o deadlock deadlock.c
+./deadlock

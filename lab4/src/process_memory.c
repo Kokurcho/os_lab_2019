@@ -7,7 +7,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-/* Below is a macro definition */
+/* Below is a macro definition */ //пишем макрос
 #define SHW_ADR(ID, I) (printf("ID %s \t is at virtual address: %8X\n", ID, &I))
 
 extern int etext, edata, end; /* Global variables for process
@@ -20,7 +20,7 @@ int showit(); /* Function prototype */
 main() {
   int i = 0; /* Automatic variable */
 
-  /* Printing addressing information */
+  /* Printing addressing information */ 
   printf("\nAddress etext: %8X \n", &etext);
   printf("Address edata: %8X \n", &edata);
   printf("Address end  : %8X \n", &end);
