@@ -1,0 +1,56 @@
+1
+про килл 
+kill (сигнал, номер процесса)
+https://www.opennet.ru/man.shtml?topic=kill&category=2&russian=0
+
+waitpid
+pid_t waitpid*(pid_t pid, int *status, int options);
+https://www.opennet.ru/man.shtml?topic=waitpid&category=2&russian=0
+
+signal
+sighandler_t signal(int signum, sighandler_t handler);
+Системный вызов signal() устанавливает новый обработчик сигнала с номером signum в соответствии с параметром sighandler, который может быть функцией пользователя, SIG_IGN или SIG_DFL
+Функция signal() возвращает предыдущее значение обработчика сигнала или SIG_ERR при ошибке.  
+Использование функции-обработчика сигнала называется "перехватом сигнала". Сигналы SIGKILL и SIGSTOP не могут быть "перехвачены" или игнорированы.  
+
+alarm - установка времени доставки тревожного сигнала  
+unsigned int alarm(unsigned int seconds);
+alarm возвращает количество секунд, оставшихся до момента доставки сигнала, установленного предыдущим вызовом alarm или ноль, если в очереди нет тревожных сигналов.  
+
+cd lab4/src
+./parallel_min_max --seed 2 --array_size 2 --pnum 3
+./parallel_min_max --seed 2 --array_size 2 --pnum 3 --timeout 2
+
+2 - файл zombi.c
+    //Чтобы его завершить, нужно найти "родителя" этого процесса. Для этого можно использовать команду:
+    //ps -xal | grep defunct
+    // и затем убить родителя
+    // kill -KILL ppid
+
+    gcc zombi.c -o zombii
+    ./zombii
+3
+Виртуальная память использует фактическое пространство винчестера, манипулируя данными с помощью операционной системы и перемещая их в случае необходимости из оперативной памяти на жесткий диск. Часть пространства на жестком диске действует как временный носитель. Операционная система определяет, какие данные и в каком месте сохранены и обеспечивает к ним быстрый доступ, позволяя работать системе максимально быстро.
+
+etext
+Первый адрес после конца текстового сегмента (программного кода).
+
+edata
+Первый адрес после конца инициализированного сегмента данных.
+
+end
+Первый адрес после конца неинициализированного сегмента данных (также известного как сегмент BSS).
+https://habr.com/ru/company/nix/blog/277759/
+
+./process_memory
+
+4
+cd /home/runner/oslab2019/lab4/src
+make -f makefile1
+./process_memory
+./parallel_min_max --seed 1 --array_size 60000 --pnum 2 --timeout 10
+
+5-6
+make -f makefile2 clean
+make -f makefile2
+./psum --threads_num 1 --seed 3 --array_size 5

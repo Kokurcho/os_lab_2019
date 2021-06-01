@@ -1,0 +1,33 @@
+http://www.redov.ru/kompyutery_i_internet/tcp_ip_arhitektura_protokoly_realizacija_vklyuchaja_ip_versii_6_i_ip_security/img_217.png
+
+http://www.redov.ru/kompyutery_i_internet/tcp_ip_arhitektura_protokoly_realizacija_vklyuchaja_ip_versii_6_i_ip_security/p25.php
+
+//Функция ntohl() преобразует сетевой порядок расположения байтов положительного целого netlong в узловой порядок расположения байтов. 
+  //write(int fd, const void *buf, size_t count); 
+  //write записывает до count байтов из буфера buf в файл, на который ссылается файловый описатель fd 
+    //Функция ntohs() преобразует сетевой порядок расположения байтов положительного короткого целого netshort в узловой порядок расположения байтов. 
+
+      //listen Первый аргумент - сокет для прослушивания, второй аргумент (backlog) - целое положительное число, определяющее, как много запросов связи может быть принято на сокет одновременно.
+
+ //Данная функция преобразует строку символов src в сетевой адрес (типа af), затем копирует полученную структуру с адресом в dst. 
+  //int inet_pton(int af, const char *src, void *dst);
+
+
+Задание 1
+gcc tcpserver.c -o tcpserver
+gcc tcpclient.c -o tcpclient
+gcc udpserver.c -o udpserver
+gcc udpclient.c -o udpclient
+
+./udpclient 35.191.8.3
+
+Задание 2
+1) программа tcp работает так: клиент отправляет запрос серверу (перед этим в программе клиента производятся проверки), сервер отправляет ответ Success или No success 
+udp работает так: клиент вводит бесконечное количество строк без какого-либо контроля. Ответа с сервера нет.
+2)
+3)
+4)
+5)
+6)
+7)
+8)
