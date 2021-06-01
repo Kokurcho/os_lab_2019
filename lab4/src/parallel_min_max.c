@@ -27,7 +27,7 @@ void killer(int argo)
   for (int i =0 ; i<pnum; i++)
   {
     int result = waitpid(ChildPid[i], &status, WNOHANG);
-    // останавливает процесс до тех пор, пока ChildPid[i] не завершит выполнение. WNOHANG означает немедленное возвращение управления, если ChildPid[i] не завершил выполнение. 
+
         if (result == 0)
         {
           is_killed = kill(ChildPid[i], SIGKILL);
